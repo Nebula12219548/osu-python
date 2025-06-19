@@ -1,6 +1,27 @@
 # osu!python Version Log
 
 ## v0.2.0 - 2025-06-19
+**Current Bugs:**
+- Tutorial does not work at all. Error: "File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 1207, in <module>
+    main()
+    ~~~~^^
+  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 943, in main
+    SETTINGS = main_menu(screen, clock, SETTINGS) # Pass and receive updated settings
+  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 660, in main_menu
+    tutorial_screen(screen, clock)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 460, in tutorial_screen
+    run_tutorial_demo(screen, clock)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 541, in run_tutorial_demo
+    aa_circle(screen, (100, 200, 255), obj['pos'], int(CIRCLE_RADIUS * approach), 2)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 52, in aa_circle
+    pygame.gfxdraw.aacircle(surface, pos[0], pos[1], radius-w, color)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer"
+Appears on my computer every time I try to use the tutorial.
+
 
 **New Features & Improvements:**
 - **Advanced Settings Menu:**
