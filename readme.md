@@ -19,7 +19,7 @@
 - Cursor visibility is now correctly toggled based on the 'custom_cursor' setting when entering/exiting settings and maps menus.
 - Minor visual adjustments to various menu screens.
 
-## v0.1.0 - Initial Release
+## v0.1.0 - Initial Release - 2025-06-18
 
 **Features:**
 - **Modern, Smooth UI:** Animated gradients, rounded buttons, and anti-aliased hit circles. No PNG images required.
