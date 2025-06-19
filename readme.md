@@ -23,7 +23,6 @@ A Python-based rhythm game inspired by osu! (ppy), built with pygame. This proje
 - **Settings Menu**: Placeholder, will be functional in a future update.
 
 ## Planned for v0.2.0
-- **Sliders**: Support for slider objects in maps and gameplay.
 - **Settings**: Adjustable game and UI options.
 
 ## How to Play
