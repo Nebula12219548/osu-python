@@ -21,7 +21,7 @@
     pygame.gfxdraw.aacircle(surface, pos[0], pos[1], radius-w, color)
     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'float' object cannot be interpreted as an integer"
-Appears on my computer every time I try to use the tutorial.
+Appears on my computers every time I try to use the tutorial.
 Will be fixed (hopefully) by 0.3.0!
 
 
