@@ -1,29 +1,17 @@
 # osu!python Version Log
 
-## v0.2.0 - 2025-06-19
-**Current Bugs:**
-- Tutorial does not work at all.
-- Error: "File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 1207, in <module>
-    main()
-    ~~~~^^
-  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 943, in main
-    SETTINGS = main_menu(screen, clock, SETTINGS) # Pass and receive updated settings
-  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 660, in main_menu
-    tutorial_screen(screen, clock)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 460, in tutorial_screen
-    run_tutorial_demo(screen, clock)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 541, in run_tutorial_demo
-    aa_circle(screen, (100, 200, 255), obj['pos'], int(CIRCLE_RADIUS * approach), 2)
-    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/nebulagamr/Desktop/osu/0.2.0/main.py", line 52, in aa_circle
-    pygame.gfxdraw.aacircle(surface, pos[0], pos[1], radius-w, color)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: 'float' object cannot be interpreted as an integer"
-Appears on my computer every time I try to use the tutorial.
-Will be fixed (hopefully) by 0.3.0!
+## v0.3.0 - 2025-06-19
 
+**New Features & Improvements:**
+- **Revamped UI and all older features:** The user interface and all functionalities present in previous versions have undergone a significant revamp and received comprehensive updates.
+- **Tutorial Fixes:** The tutorial has been fixed and improved for a better user experience.
+
+**Bug Fixes & Refinements:**
+- Refactored `settings_menu` to accept and return the global `SETTINGS` dictionary, ensuring settings persist and are properly updated.
+- Cursor visibility is now correctly toggled based on the 'custom_cursor' setting when entering/exiting settings and maps menus.
+- Minor visual adjustments to various menu screens.
+
+## v0.2.0 - 2025-06-19
 
 **New Features & Improvements:**
 - **Advanced Settings Menu:**
@@ -36,11 +24,7 @@ Will be fixed (hopefully) by 0.3.0!
     - Buttons and sliders in the settings menu feature new visual styling with rounded corners and gradients.
 - **Audio Handling Enhancements:**
     - Music volume from settings is now applied upon game start (May not work).
-
-**Bug Fixes & Refinements:**
-- Refactored `settings_menu` to accept and return the global `SETTINGS` dictionary, ensuring settings persist and are properly updated.
-- Cursor visibility is now correctly toggled based on the 'custom_cursor' setting when entering/exiting settings and maps menus.
-- Minor visual adjustments to various menu screens.
+- Tutorial currently does not work at all.
 
 ## v0.1.0 - Initial Release - 2025-06-18
 
