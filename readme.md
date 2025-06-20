@@ -1,4 +1,5 @@
 # osu!python Version Log
+- Versions before 1.0.0 (Example: 0.1.0, 0.2.0, 0.3.0, etc.) are alpha versions
 
 ## v0.3.0 - 2025-06-19
 
