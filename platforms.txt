@@ -1,0 +1,1 @@
+osu!python was created on a Raspberry Pi 5 computer on the Arm64 Architecture. osu!python may not work on X86-64 or i386.
