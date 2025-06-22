@@ -4,7 +4,7 @@
 ## v0.4.0 - 2025-06-22
 
 **New Features & Improvements:**
-- **Enhanced UI amd Sound:** The entire user interface has been updated to more closely resemble the aesthetic of the actual osu! game, without using any PNG images. This includes:
+- **Enhanced UI and Sound:** The entire user interface has been updated to more closely resemble the aesthetic of the actual osu! game, without using any PNG images. This includes:
     - Refined color palette with osu!-inspired blues, whites, and grays.
     - Programmatically generated hitsounds for hit circles (no external audio files needed) (Very Basic)
     - Dynamic health bar that changes color from green to yellow to red based on health percentage.
