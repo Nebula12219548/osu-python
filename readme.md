@@ -1,7 +1,7 @@
 # osu!python Version Log
 - All versions below 1.0.0 are alpha versions. (0.1.0 ,0.2.0, 0.3.0, etc.)
 
-## v0.4.0 - 2025-06-20
+## v0.4.0 - 2025-06-22
 
 **New Features & Improvements:**
 - **Enhanced UI Visuals:** The entire user interface has been updated to more closely resemble the aesthetic of the actual osu! game, without using any PNG images. This includes:
