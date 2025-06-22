@@ -1,5 +1,15 @@
 # osu!python Version Log
-- Versions before 1.0.0 (Example: 0.1.0, 0.2.0, 0.3.0, etc.) are alpha versions
+
+## v0.4.0 - 2025-06-20
+
+**New Features & Improvements:**
+- **Enhanced UI Visuals:** The entire user interface has been updated to more closely resemble the aesthetic of the actual osu! game, without using any PNG images. This includes:
+    - Refined color palette with osu!-inspired blues, whites, and grays.
+    - Programmatically generated hitsounds for hit circles (no external audio files needed) (Very Basic)
+    - Dynamic health bar that changes color from green to yellow to red based on health percentage.
+    - Improved button styling and hover/selection effects across all menus.
+- **Main Menu Logo Animation:** Re-introduced and enhanced the pulsing and glowing animation for the "osu!python" logo on the main menu.
+- **UI Layout Adjustments:** Corrected the positioning of main menu buttons to prevent overlap with the animated logo, ensuring proper spacing and visual hierarchy.
 
 ## v0.3.0 - 2025-06-19
 
