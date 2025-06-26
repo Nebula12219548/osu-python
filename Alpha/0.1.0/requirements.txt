@@ -1,0 +1,4 @@
+pygame
+librosa
+soundfile
+tk
