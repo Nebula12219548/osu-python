@@ -1,6 +1,13 @@
 # osu!python Version Log
 - All versions below 1.0.0 are alpha versions. (0.1.0 ,0.2.0, 0.3.0, etc.)
 
+## v0.5.0 - 2025-06-26
+ 
+**New Features & Improvements:**
+- **Dynamic Holiday Greetings:** Added a system to display animated greetings for various holidays (Canada Day, Halloween, Christmas, New Year's) on the main menu.
+- **Enhanced Canada Day Feature:** The Canadian flag now includes a programmatically drawn maple leaf and features a subtle wave animation.
+- **UI Layout Fix:** Repositioned holiday greetings to the top of the screen to prevent overlap with main menu buttons.
+
 ## v0.4.0 - 2025-06-22
 
 **New Features & Improvements:**
@@ -11,6 +18,7 @@
     - Improved button styling and hover/selection effects across all menus.
 - **Main Menu Logo Animation:** Re-introduced and enhanced the pulsing and glowing animation for the "osu!python" logo on the main menu.
 - **UI Layout Adjustments:** Corrected the positioning of main menu buttons to prevent overlap with the animated logo, ensuring proper spacing and visual hierarchy.
+
 
 ## v0.3.0 - 2025-06-19
 
