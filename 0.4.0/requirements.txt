@@ -1,5 +1,0 @@
-pygame
-librosa
-soundfile
-tk # Note: tk is usually part of Python's standard library, but included for clarity if a separate installation is ever needed.
-numpy
