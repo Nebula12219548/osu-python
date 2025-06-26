@@ -1,4 +1,0 @@
-pygame
-librosa
-soundfile
-tk
