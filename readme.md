@@ -1,6 +1,20 @@
 # osu!python Version Log
 - All versions below 1.0.0 are alpha versions. (0.1.0 ,0.2.0, 0.3.0, etc.)
 
+
+## v0.6.0 - 2025-07-11
+
+**Major UI & Graphics Revamp 2:**
+- All game graphics and UI elements are now programmatically generated (no PNG images required).
+- Modern osu!-inspired visuals: animated gradients, glowing/shadowed buttons, anti-aliased hit circles, custom glowing cursor.
+- Main menu, settings, map selection, tutorial, and gameplay screens feature dynamic gradients, rounded corners, and smooth transitions.
+- Approach circles, health bar, and feedback popups are visually enhanced and animated.
+- All menus and gameplay now scale responsively to window size.
+- Custom cursor and button effects throughout the UI.
+- Improved visual feedback for hits, misses, and combo.
+- All UI changes are documented and versioned for future reference.
+
+
 ## v0.5.0 - 2025-06-26
  
 **New Features & Improvements:**
