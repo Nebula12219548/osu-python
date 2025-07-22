@@ -1127,6 +1127,7 @@ def maps_menu(screen, clock):
 
     options = [{'label': os.path.splitext(os.path.basename(f))[0], 'path': f} for f in map_files]
     options.append({'label': 'Back to Main Menu', 'path': None})
+    options.append({'label': 'Change Gamemode', 'path': None})
 
     selected = 0
     running = True
@@ -1175,13 +1176,99 @@ def maps_menu(screen, clock):
                 elif event.key == pygame.K_DOWN:
                     selected = (selected + 1) % len(options)
                 elif event.key == pygame.K_RETURN:
-                    return options[selected]['path']
+                    if options[selected]['path'] is None:  # Handle special actions
+                        if options[selected]['label'] == 'Back to Main Menu':
+                            return None
+                        elif options[selected]['label'] == 'Change Gamemode':
+                            gamemode_options = ['osu!standard', 'osu!mania', 'osu!taiko']
+                            gamemode_selected = 0
+                            changing_gamemode = True
+                            while changing_gamemode:
+                                current_width, current_height = screen.get_size()
+                                draw_gradient_rect(screen, (0, 0, current_width, current_height), OSU_DARK_GREY, (10, 10, 40), vertical=True)
+                                title = font_big.render('Select Gamemode', True, OSU_BLUE)
+                                title_rect = title.get_rect(center=(current_width//2, 80))
+                                screen.blit(title, title_rect)
+
+                                for i, mode in enumerate(gamemode_options):
+                                    is_selected = (i == gamemode_selected)
+                                    color = OSU_YELLOW if is_selected else OSU_WHITE
+                                    btn_c1 = OSU_BLUE if is_selected else OSU_MEDIUM_GREY
+                                    btn_c2 = OSU_DARK_BLUE if is_selected else OSU_DARK_GREY
+
+                                    text_surface = font_medium.render(mode, True, color)
+                                    rect = text_surface.get_rect(center=(current_width//2, 180 + i*60))
+
+                                    draw_rounded_gradient(screen, rect.inflate(40, 10), btn_c1, btn_c2, radius=12, vertical=False)
+                                    pygame.draw.rect(screen, (255,255,255,180), rect.inflate(40, 10), 2, border_radius=12)
+                                    screen.blit(text_surface, rect)
+
+                                pygame.display.flip()
+
+                                for event in pygame.event.get():
+                                    if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
+                                    elif event.type == pygame.KEYDOWN:
+                                        if event.key == pygame.K_UP:
+                                            gamemode_selected = (gamemode_selected - 1) % len(gamemode_options)
+                                        elif event.key == pygame.K_DOWN:
+                                            gamemode_selected = (gamemode_selected + 1) % len(gamemode_options)
+                                        elif event.key == pygame.K_RETURN:
+                                            SETTINGS['gamemode'] = gamemode_options[gamemode_selected]
+                                            changing_gamemode = False
+                                        elif event.key == pygame.K_ESCAPE:
+                                            changing_gamemode = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 for i, opt in enumerate(options):
                     text_surface = font_medium.render(opt['label'], True, OSU_WHITE)
                     rect = text_surface.get_rect(center=(current_width//2, 180 + i*60))
                     if rect.inflate(40, 10).collidepoint(event.pos):
-                        return opt['path']
+                        if opt['path'] is None:  # Handle special actions
+                            if opt['label'] == 'Back to Main Menu':
+                                return None
+                            elif opt['label'] == 'Change Gamemode':
+                                gamemode_options = ['osu!standard', 'osu!mania', 'osu!taiko']
+                                gamemode_selected = 0
+                                changing_gamemode = True
+                                while changing_gamemode:
+                                    current_width, current_height = screen.get_size()
+                                    draw_gradient_rect(screen, (0, 0, current_width, current_height), OSU_DARK_GREY, (10, 10, 40), vertical=True)
+                                    title = font_big.render('Select Gamemode', True, OSU_BLUE)
+                                    title_rect = title.get_rect(center=(current_width//2, 80))
+                                    screen.blit(title, title_rect)
+
+                                    for i, mode in enumerate(gamemode_options):
+                                        is_selected = (i == gamemode_selected)
+                                        color = OSU_YELLOW if is_selected else OSU_WHITE
+                                        btn_c1 = OSU_BLUE if is_selected else OSU_MEDIUM_GREY
+                                        btn_c2 = OSU_DARK_BLUE if is_selected else OSU_DARK_GREY
+
+                                        text_surface = font_medium.render(mode, True, color)
+                                        rect = text_surface.get_rect(center=(current_width//2, 180 + i*60))
+
+                                        draw_rounded_gradient(screen, rect.inflate(40, 10), btn_c1, btn_c2, radius=12, vertical=False)
+                                        pygame.draw.rect(screen, (255,255,255,180), rect.inflate(40, 10), 2, border_radius=12)
+                                        screen.blit(text_surface, rect)
+
+                                    pygame.display.flip()
+
+                                    for event in pygame.event.get():
+                                        if event.type == pygame.QUIT:
+                                            pygame.quit()
+                                            sys.exit()
+                                        elif event.type == pygame.KEYDOWN:
+                                            if event.key == pygame.K_UP:
+                                                gamemode_selected = (gamemode_selected - 1) % len(gamemode_options)
+                                            elif event.key == pygame.K_DOWN:
+                                                gamemode_selected = (gamemode_selected + 1) % len(gamemode_options)
+                                            elif event.key == pygame.K_RETURN:
+                                                SETTINGS['gamemode'] = gamemode_options[gamemode_selected]
+                                                changing_gamemode = False
+                                            elif event.key == pygame.K_ESCAPE:
+                                                changing_gamemode = False
+                        else:
+                            return opt['path']
         clock.tick(FPS)
     return None
 
@@ -1262,6 +1349,7 @@ def play_game(screen, clock, map_filepath, map_name, hit_sound):
     next_circle_index = 0
     score = 0
     health = 100
+   
     max_health = 100
     combo = 0
     last_hit_time = 0
@@ -1447,6 +1535,44 @@ def play_game(screen, clock, map_filepath, map_name, hit_sound):
         except OSError as e:
             print(f"Error removing temporary audio file {current_audio_temp_file}: {e}")
     return 'Maps'
+
+# Placeholder for osu!mania gamemode
+def osu_mania_mode(screen, clock):
+    font_big = pygame.font.SysFont('Arial', 54, bold=True)
+    running = True
+    while running:
+        current_width, current_height = screen.get_size()
+        draw_gradient_rect(screen, (0, 0, current_width, current_height), OSU_DARK_GREY, (10, 10, 40), vertical=True)
+        title = font_big.render('osu!mania Mode (Placeholder)', True, OSU_BLUE)
+        title_rect = title.get_rect(center=(current_width//2, current_height//2))
+        screen.blit(title, title_rect)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
+                running = False
+        clock.tick(FPS)
+
+# Placeholder for osu!taiko gamemode
+def osu_taiko_mode(screen, clock):
+    font_big = pygame.font.SysFont('Arial', 54, bold=True)
+    running = True
+    while running:
+        current_width, current_height = screen.get_size()
+        draw_gradient_rect(screen, (0, 0, current_width, current_height), OSU_DARK_GREY, (10, 10, 40), vertical=True)
+        title = font_big.render('osu!taiko Mode (Placeholder)', True, OSU_BLUE)
+        title_rect = title.get_rect(center=(current_width//2, current_height//2))
+        screen.blit(title, title_rect)
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
+                running = False
+        clock.tick(FPS)
 
 def main():
     pygame.init()

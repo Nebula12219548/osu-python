@@ -1,6 +1,14 @@
 # osu!python Version Log
 - All versions below 1.0.0 are alpha versions. (0.1.0 ,0.2.0, 0.3.0, etc.)
 
+- Versions 1.0.0 - 2.0.0 are beta versions (1.1.0, 1.2.0, 1.3.0, etc.)
+
+## 0.7.0 - 2025-07-12
+
+**New Features & Improvements:**
+- **Gamemode Selection:** Added the ability to select different gamemodes in the maps menu.
+- **osu!mania Placeholder:** Introduced a placeholder for the osu!mania gamemode.
+- **osu!taiko Placeholder:** Introduced a placeholder for the osu!taiko gamemode.
 
 ## v0.6.0 - 2025-07-11
 
